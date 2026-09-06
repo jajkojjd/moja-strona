@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Elo elo 320 😎</title>
+
+    <meta
+        name="description"
+        content="Elo elo 320 😎 — oficjalna strona Karola."
+    >
+
+    <!-- FAVICON -->
+    <link
+        rel="icon"
+        href="/ikona/favicon.ico?v=3"
+        type="image/x-icon"
+    >
+
+    <link
+        rel="shortcut icon"
+        href="/ikona/favicon.ico?v=3"
+        type="image/x-icon"
+    >
+
+    <link
+        rel="canonical"
+        href="https://xkarolx.pl/"
+    >
+
+    <meta
+        name="robots"
+        content="index, follow"
+    >
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            min-height: 100%;
+            background: #000;
+            color: #fff;
+            font-family: Arial, sans-serif;
+        }
+
+        /* EKRAN WERYFIKACJI */
+
+        #captcha-screen {
+            position: fixed;
+            inset: 0;
+            min-height: 100dvh;
+            background: #000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            z-index: 9999;
+            padding: 20px;
+            overflow-y: auto;
+        }
+
+        .captcha-box {
+            width: 100%;
+            max-width: 500px;
+            padding: 20px;
+        }
+
+        .captcha-box h1 {
+            font-size: 28px;
+            margin: 0 0 12px;
+        }
+
+        .captcha-box p {
+            color: #ccc;
+            margin: 0 0 15px;
+        }
+
+        #timer {
+            color: #aaa;
+            margin-bottom: 25px;
+        }
+
+        #seconds {
+            color: #fff;
+            font-weight: bold;
+        }
+
+        /* PRZYCISK WERYFIKACJI */
+        .verify-button {
+            display: inline-block;
+            padding: 16px 32px;
+            background: #111;
+            color: #fff;
+            border: 2px solid #333;
+            border-radius: 14px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .verify-button:hover {
+            background: #1c1c1c;
+            border-color: #555;
+            transform: scale(1.05);
+        }
+
+        #captcha-status {
+            margin-top: 20px;
+            color: #aaa;
+            font-size: 14px;
+        }
+
+        /* GŁÓWNA STRONA */
+
+        #main-page {
+            display: none;
+            min-height: 100vh;
+            padding: 50px 20px;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 500px;
+            margin: auto;
+            text-align: center;
+        }
+
+        .container h1 {
+            margin-bottom: 10px;
+        }
+
+        .container p {
+            color: #ccc;
+            margin-bottom: 25px;
+        }
+
+        /* PRZYCISKI LINKÓW */
+        .button {
+            display: block;
+            width: 240px;
+            padding: 14px 20px;
+            margin: 10px auto;
+            background: #111;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 14px;
+            font-size: 16px;
+            font-weight: bold;
+            text-align: center;
+            transition: 0.2s;
+        }
+
+        .button:hover {
+            background: #1c1c1c;
+            transform: scale(1.05);
+        }
+
+        /* PRZYCISK ZGŁASZANIA BŁĘDÓW */
+        #report-bug-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 999999;
+            background: #d32f2f;
+            color: #fff;
+            border: none;
+            border-radius: 30px;
+            padding: 12px 20px;
+            font-family: inherit;
+            font-size: 14px;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        #report-bug-btn:hover {
+            background: #b71c1c;
+        }
+
+        /* TELEFON */
+        @media (max-width: 480px) {
+
+            #captcha-screen {
+                align-items: flex-start;
+                padding-top: 70px;
+            }
+
+            .captcha-box {
+                padding: 10px;
+            }
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <!-- EKRAN WERYFIKACJI -->
+
+    <div id="captcha-screen">
+
+        <div class="captcha-box">
+
+            <h1>Zanim wejdziesz...</h1>
+
+            <p>Kliknij przycisk, żeby potwierdzić, że nie jesteś botem.</p>
+
+            <div id="timer">
+                Pozostało <span id="seconds">20</span> sekund
+            </div>
+
+            <button
+                class="verify-button"
+                id="verify-btn"
+                type="button"
+            >
+                Zweryfikuj mnie ✅
+            </button>
+
+            <div id="captcha-status"></div>
+
+        </div>
+
+    </div>
+
+    <!-- GŁÓWNA STRONA -->
+
+    <div id="main-page">
+
+        <div class="container">
+
+            <h1>
+                Elo elo 320 😎
+            </h1>
+
+            <p>
+                To ja Karol
+            </p>
+
+            <a
+                class="button"
+                href="https://jajkojjd.github.io/nexil.jpg/"
+            >
+                Nexil
+            </a>
+
+            <a
+                class="button"
+                href="https://jajkojjd.github.io/random_strona/"
+            >
+                Random strona
+            </a>
+
+            <a
+                class="button"
+                href="https://discord.gg/y9tze8b7a"
+            >
+                Mój Discord
+            </a>
+
+            <a
+                class="button"
+                href="https://www.tiktok.com/@tenjedenmikol_mk"
+            >
+                TikTok
+            </a>
+
+        </div>
+
+    </div>
+
+    <!-- PRZYCISK ZGŁASZANIA BŁĘDÓW -->
+
+    <button id="report-bug-btn" type="button">
+        Jak coś się zwali, klikaj
+    </button>
+
+    <script>
+
+        let verified = false;
+
+        /*
+         * WERYFIKACJA ma 20 sekund.
+         */
+        let seconds = 20;
+
+        const secondsElement =
+            document.getElementById("seconds");
+
+        const statusElement =
+            document.getElementById("captcha-status");
+
+        /*
+         * LICZNIK
+         */
+        const countdown = setInterval(function () {
+
+            if (verified) {
+                clearInterval(countdown);
+                return;
+            }
+
+            seconds--;
+
+            secondsElement.textContent = seconds;
+
+            /*
+             * Po 20 sekundach użytkownik
+             * zostaje przekierowany.
+             */
+            if (seconds <= 0) {
+
+                clearInterval(countdown);
+
+                window.location.replace(
+                    "https://ptoszek.pl/"
+                );
+            }
+
+        }, 1000);
+
+        /*
+         * KLIKNIĘCIE PRZYCISKU WERYFIKACJI
+         */
+        document
+            .getElementById("verify-btn")
+            .addEventListener("click", function () {
+
+                verified = true;
+
+                clearInterval(countdown);
+
+                statusElement.textContent =
+                    "Zweryfikowano ✅";
+
+                document
+                    .getElementById("captcha-screen")
+                    .style.display = "none";
+
+                const mainPage =
+                    document.getElementById("main-page");
+
+                mainPage.style.display = "flex";
+            });
+
+        /*
+         * PRZYCISK ZGŁASZANIA BŁĘDÓW
+         */
+        document
+            .getElementById("report-bug-btn")
+            .addEventListener("click", function () {
+
+                const adres = "karolkwiatek5000@gmail.com";
+                const temat = "Zgłoszenie błędu - xkarolx.pl";
+                const tresc = "Cześć,\n\nCoś się zwaliło na stronie xkarolx.pl.\n\nOpis problemu:\n";
+
+                const link =
+                    "mailto:" + adres +
+                    "?subject=" + encodeURIComponent(temat) +
+                    "&body=" + encodeURIComponent(tresc);
+
+                window.location.href = link;
+            });
+
+    </script>
+
+</body>
+
+</html>
