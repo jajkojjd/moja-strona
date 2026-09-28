@@ -3,7 +3,7 @@
 
   const REDIRECT_PATH = "/nie-istnieje-404";
   const GATE_SECONDS = 20;
-  const SITE_KEY = "YOUR_HCAPTCHA_SITEKEY";
+  const SITE_KEY = "904255a8-9638-44b2-ad68-15d8c3c09302";
   let verified = false;
   let seconds = GATE_SECONDS;
   let hcaptchaReady = false;
